@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void GoToIngame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(4);
     }
     public void ExitGame()

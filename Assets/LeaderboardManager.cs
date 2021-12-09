@@ -82,23 +82,23 @@ public class LeaderboardManager : MonoBehaviour
         HighscoreText2.text = _gr.Games[1].Highscore.ToString();
         HighscoreText3.text = _gr.Games[2].Highscore.ToString();
         HighscoreText4.text = _gr.Games[3].Highscore.ToString();
-        HighscoreText5.text = _gr.Games[4].Highscore.ToString();/*
+        HighscoreText5.text = _gr.Games[4].Highscore.ToString();
         HighscoreText6.text = _gr.Games[5].Highscore.ToString();
         HighscoreText7.text = _gr.Games[6].Highscore.ToString();
         HighscoreText8.text = _gr.Games[7].Highscore.ToString();
         HighscoreText9.text = _gr.Games[8].Highscore.ToString();
-        HighscoreText10.text = _gr.Games[9].Highscore.ToString();*/
+        HighscoreText10.text = _gr.Games[9].Highscore.ToString();
 
-        /*UserText1.text = _gr.Games[0].User.Username;
+        UserText1.text = _gr.Games[0].User.Username;
         UserText2.text = _gr.Games[1].User.Username;
         UserText3.text = _gr.Games[2].User.Username;
         UserText4.text = _gr.Games[3].User.Username;
-        UserText5.text = _gr.Games[4].User.Username;/*
+        UserText5.text = _gr.Games[4].User.Username;
         UserText6.text = _gr.Games[5].User.Username;
         UserText7.text = _gr.Games[6].User.Username;
         UserText8.text = _gr.Games[7].User.Username;
         UserText9.text = _gr.Games[8].User.Username;
-        UserText10.text = _gr.Games[9].User.Username;*/
+        UserText10.text = _gr.Games[9].User.Username;
     }
 }
 

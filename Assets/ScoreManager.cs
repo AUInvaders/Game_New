@@ -102,7 +102,7 @@ public class ScoreManager : MonoBehaviour
         //WebSocketClient.Send(JsonUtility.ToJson(gc));
         Game game = new Game();
         game.Coinsgained = score;
-        game.Highscore = Highscore;
+        game.Highscore = score;
         AddGameRequest req = new AddGameRequest();
         req.Game = game;
         req.Command = Commands.ADD_GAME;
