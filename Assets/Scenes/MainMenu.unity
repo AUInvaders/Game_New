@@ -1401,6 +1401,7 @@ GameObject:
   - component: {fileID: 356829293}
   - component: {fileID: 356829292}
   - component: {fileID: 356829291}
+  - component: {fileID: 356829295}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1524,6 +1525,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &356829295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356829289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52da8ec1f9b3c5a45a72fd142d871a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &364214861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,7 +4324,7 @@ GameObject:
   - component: {fileID: 1084222170}
   - component: {fileID: 1084222169}
   m_Layer: 0
-  m_Name: Login_box
+  m_Name: MainMenu_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4362,7 +4375,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 16, y: 17}
+  m_Size: {x: 15, y: 14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
