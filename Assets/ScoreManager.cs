@@ -14,6 +14,10 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI HighscoreText;
     public static ScoreManager Instance;
 
+    public TextMeshProUGUI LevelDone;
+    public TextMeshProUGUI CurrLevel;
+    int currLvl = 1;
+
     private bool _dataRecieved = false;
     //private RecievedData _rd;
     //I toppen sammen med de andre privates
@@ -54,7 +58,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LevelDone.enabled = true;
         //Game game = new Game();
         //Request HighscoreReq = new Request();
         //WebSocketClient.Start();
@@ -69,7 +73,7 @@ public class ScoreManager : MonoBehaviour
         print(Highscore + " Fra Start");
         HighscoreText.text = "Highscore: " + Highscore.ToString();
 
-
+        CurrLevel.text = "Current lvl: " + currLvl;
         scoreText.text = score.ToString() + " Coins!";
         
     }
@@ -104,6 +108,23 @@ public class ScoreManager : MonoBehaviour
         req.Command = Commands.ADD_GAME;
         //WebSocketClient.Start();
         WebSocketClient.Send(req.ToString());
+    }
+    public void BossDeath()
+    {
+        currLvl++;
+        CurrLevel.text = "Current lvl: " + currLvl;
+        print("In BossDeath");
+        StartCoroutine(LevelCompleteDelay());
+    }
+
+    public IEnumerator LevelCompleteDelay()
+    {
+        LevelDone.text = "Level Completed";
+        //yield return LevelDone.enabled = true;
+        yield return new WaitForSeconds(3);
+        //yield return LevelDone.enabled = false;
+        LevelDone.text = "";
+
     }
 }
 

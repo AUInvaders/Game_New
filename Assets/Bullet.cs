@@ -19,10 +19,9 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D hitinfo)
     {
         Enemy enemy = hitinfo.GetComponent<Enemy>();
-        if(enemy != null)
-        {
-            enemy.TakeDamage(damage);
-        }
+
+            enemy?.TakeDamage(damage);
+        
         if(hitinfo.gameObject.name!="Bullet(Clone)"&&hitinfo.gameObject.name!="PlayerShip")
             Destroy(gameObject);
     }

@@ -61,13 +61,15 @@ public class LeaderboardManager : MonoBehaviour
     }
     void OnMessage(object sender, MessageEventArgs e)
     {
-        _gr = JsonConvert.DeserializeObject<GamesResponse>(e.Data);
+        _gr = Newtonsoft.Json.JsonConvert.DeserializeObject<GamesResponse>(e.Data);
+
+        Debug.Log(e.Data);
+
         _dataRecieved = true;
 
-
+        
 
     }
-    //h
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +77,6 @@ public class LeaderboardManager : MonoBehaviour
         request.Command = Commands.GET_BEST_GAMES;
         WebSocketClient.Send(request.ToString());
         do { } while (!_dataRecieved);
-
 
         HighscoreText1.text = _gr.Games[0].Highscore.ToString();
         HighscoreText2.text = _gr.Games[1].Highscore.ToString();
@@ -88,8 +89,8 @@ public class LeaderboardManager : MonoBehaviour
         HighscoreText9.text = _gr.Games[8].Highscore.ToString();
         HighscoreText10.text = _gr.Games[9].Highscore.ToString();*/
 
-        //UserText1.text = _gr.Games[0].User.Username;
-        /*UserText2.text = _gr.Games[1].User.Username;
+        /*UserText1.text = _gr.Games[0].User.Username;
+        UserText2.text = _gr.Games[1].User.Username;
         UserText3.text = _gr.Games[2].User.Username;
         UserText4.text = _gr.Games[3].User.Username;
         UserText5.text = _gr.Games[4].User.Username;/*
