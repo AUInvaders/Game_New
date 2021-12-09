@@ -20,6 +20,7 @@ public class RegisterMenu : MonoBehaviour
     public GameObject username;
     public GameObject password;
     public GameObject confirmpassword;
+    public GameObject wrongemail_display;
     public GameObject wronguser_display;
     public GameObject wrongpass_display;
     public GameObject wrongconfpass_display;
@@ -50,12 +51,12 @@ public class RegisterMenu : MonoBehaviour
     {
         if (Email == "")
         {
-            //wronguser_display.GetComponent<Text>().text = "Field is empty";
-            //wronguser_display.GetComponent<Text>().color = Color.red;
+            wrongemail_display.GetComponent<Text>().text = "Field is empty";
+            wrongemail_display.GetComponent<Text>().color = Color.red;
             return false;
         }
 
-        //wronguser_display.GetComponent<Text>().text = "";
+        wrongemail_display.GetComponent<Text>().text = "";
         return true;
     }
 
@@ -121,8 +122,9 @@ public class RegisterMenu : MonoBehaviour
             case "Username is already in use":
                 {
                     print("Registration failed: User already exist");
-                    //Skriv at brugeren eksisterer i forvejen
-
+                    wronguser_display.GetComponent<Text>().text = "User already exists";
+                    wronguser_display.GetComponent<Text>().color = Color.red;
+                    
                     _dataRecieved = false;
                     break;
                 }
@@ -130,13 +132,16 @@ public class RegisterMenu : MonoBehaviour
             case "OK": //Besked skal opdates, mangler svar fra lasse
                 {
                     print("User is created");
+
                     username.GetComponent<InputField>().text = "";
                     password.GetComponent<InputField>().text = "";
                     confirmpassword.GetComponent<InputField>().text = "";
+
                     wronguser_display.GetComponent<Text>().text = "";
                     wrongpass_display.GetComponent<Text>().text = "";
                     wrongconfpass_display.GetComponent<Text>().text = "Registration Complete";
                     wrongconfpass_display.GetComponent<Text>().color = Color.green;
+
                     _dataRecieved = false;
                     break;
                 }
@@ -176,6 +181,10 @@ public class RegisterMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (email.GetComponent<InputField>().isFocused)
+            {
+                username.GetComponent<InputField>().Select();
+            }
             if (username.GetComponent<InputField>().isFocused)
             {
                 password.GetComponent<InputField>().Select();
