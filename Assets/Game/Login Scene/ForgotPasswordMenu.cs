@@ -108,7 +108,8 @@ public class ForgotPasswordMenu : MonoBehaviour
             {
                 SendButton();
             }
-        }
+        } 
+        UsernameOrEmail = usernameoremail.GetComponent<InputField>().text;
     }
 
     public void GoBackToLogin()
