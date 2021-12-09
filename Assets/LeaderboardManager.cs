@@ -5,6 +5,7 @@ using TMPro;
 using WebSocketSharp;
 using System;
 using Backend.Types;
+using Newtonsoft.Json;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -60,15 +61,13 @@ public class LeaderboardManager : MonoBehaviour
     }
     void OnMessage(object sender, MessageEventArgs e)
     {
-        //_sr = new ServerResponse();
-        //_sr = JsonUtility.FromJson<ServerResponse>(e.Data);
+        _gr = JsonConvert.DeserializeObject<GamesResponse>(e.Data);
         _dataRecieved = true;
-        Debug.Log(e.Data);
 
-        _gr = new GamesResponse();
-        _gr = JsonUtility.FromJson<GamesResponse>(e.Data);
+
+
     }
-
+    //h
     // Start is called before the first frame update
     void Start()
     {
@@ -76,51 +75,52 @@ public class LeaderboardManager : MonoBehaviour
         request.Command = Commands.GET_BEST_GAMES;
         WebSocketClient.Send(request.ToString());
         do { } while (!_dataRecieved);
-        //print(_gr.Games[0].Highscore);
 
-        Debug.Log(_gr);
 
-       // HighscoreText1.text = arr[0].ToString();
+        HighscoreText1.text = _gr.Games[0].Highscore.ToString();
         HighscoreText2.text = _gr.Games[1].Highscore.ToString();
         HighscoreText3.text = _gr.Games[2].Highscore.ToString();
         HighscoreText4.text = _gr.Games[3].Highscore.ToString();
-        HighscoreText5.text = _gr.Games[4].Highscore.ToString();
+        HighscoreText5.text = _gr.Games[4].Highscore.ToString();/*
         HighscoreText6.text = _gr.Games[5].Highscore.ToString();
         HighscoreText7.text = _gr.Games[6].Highscore.ToString();
         HighscoreText8.text = _gr.Games[7].Highscore.ToString();
         HighscoreText9.text = _gr.Games[8].Highscore.ToString();
-        HighscoreText10.text = _gr.Games[9].Highscore.ToString();
+        HighscoreText10.text = _gr.Games[9].Highscore.ToString();*/
 
-        UserText1.text = User1.ToString();
-        UserText2.text = User2.ToString();
-        UserText3.text = User3.ToString();
-        UserText4.text = User4.ToString();
-        UserText5.text = User5.ToString();
-        UserText6.text = User6.ToString();
-        UserText7.text = User7.ToString();
-        UserText8.text = User8.ToString();
-        UserText9.text = User9.ToString();
-        UserText10.text = User10.ToString();
+        //UserText1.text = _gr.Games[0].User.Username;
+        /*UserText2.text = _gr.Games[1].User.Username;
+        UserText3.text = _gr.Games[2].User.Username;
+        UserText4.text = _gr.Games[3].User.Username;
+        UserText5.text = _gr.Games[4].User.Username;/*
+        UserText6.text = _gr.Games[5].User.Username;
+        UserText7.text = _gr.Games[6].User.Username;
+        UserText8.text = _gr.Games[7].User.Username;
+        UserText9.text = _gr.Games[8].User.Username;
+        UserText10.text = _gr.Games[9].User.Username;*/
     }
 }
 
 [Serializable]
 public class GamesResponse
 {
-    public GamesResponse()
-    {
-        Games = new List<GamesResponseNested>();
-    }
+    public List<OuterGamesResponse> Games;
+
     public string Message;
     public int Code;
-    public List<GamesResponseNested> Games;
-
 }
 
-[Serializable] 
-public class GamesResponseNested
+[Serializable]
+public class OuterGamesResponse
 {
-    public GamesResponseNested() { }
     public int Coinsgained;
     public int Highscore;
+    public DateTime Starttime;
+    public InnerGamesResponse User;
+}
+
+[Serializable]
+public class InnerGamesResponse
+{
+    public string Username;
 }
