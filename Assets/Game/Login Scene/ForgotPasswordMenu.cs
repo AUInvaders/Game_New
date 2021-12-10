@@ -12,7 +12,7 @@ public class ForgotPasswordMenu : MonoBehaviour
 {
     public GameObject usernameoremail;
     public GameObject ForgotPasswordMenuUI;
-    public GameObject LoginMenuUI;
+    public GameObject ResetPasswordMenuUI;
     public GameObject user_display;
 
     private string UsernameOrEmail;
@@ -96,7 +96,7 @@ public class ForgotPasswordMenu : MonoBehaviour
         if(s)
         {
             ForgotPasswordMenuUI.SetActive(false);
-            LoginMenuUI.SetActive(true);
+            ResetPasswordMenuUI.SetActive(true);
         }
     }
 
@@ -110,13 +110,6 @@ public class ForgotPasswordMenu : MonoBehaviour
             }
         } 
         UsernameOrEmail = usernameoremail.GetComponent<InputField>().text;
-    }
-
-    public void GoBackToLogin()
-    {
-        //SceneManager.LoadScene(1);
-        ForgotPasswordMenuUI.SetActive(false);
-        LoginMenuUI.SetActive(true);
     }
 }
 
