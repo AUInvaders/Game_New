@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6230699317652844413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 350, y: 250, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 0.5}
+  m_LocalScale: {x: 50, y: 50, z: 0.5}
   m_Children:
   - {fileID: 6230699318398416957}
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
-  m_Color: {r: 0.1544295, g: 0.9811321, b: 0, a: 1}
+  m_Sprite: {fileID: -2311659948842064771, guid: 6520dda4a70dfbf40a55b7af39ecda4e, type: 3}
+  m_Color: {r: 0.54787034, g: 0.98039216, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,6 +155,9 @@ MonoBehaviour:
   gun1: {fileID: 0}
   gun2: {fileID: 0}
   gun3: {fileID: 0}
+  lastGunSelected: 0
+  pelletamount: 7
+  spread: 1
 --- !u!114 &6230699317652844410
 MonoBehaviour:
   m_ObjectHideFlags: 0
