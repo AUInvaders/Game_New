@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using WebSocketSharp;
 
-
 public class ForgotPasswordMenu : MonoBehaviour
 {
     public GameObject usernameoremail;
