@@ -172,6 +172,11 @@ public class LoginMenu : MonoBehaviour
 
         UsernameorEmail = usernameoremail.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void GoToRegister()

@@ -8,20 +8,15 @@ using TMPro;
 public class GameOverMenu : MonoBehaviour
 {
     public TextMeshProUGUI PointsText;
-
-    
-
     public void Setup()
     {
         gameObject.SetActive(true);
 
-        //PointsText.text = ScoreManager.Instance.scoreText.text;
         PointsText.text = ScoreManager.score.ToString() + " Points";
     }
 
     public void RestartButton()
     {
-        //SceneManager.LoadScene(1); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         PlayerShip.Health = 100;
@@ -35,7 +30,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(3); // - Til at tilgå mainmenu
+        SceneManager.LoadScene(3); 
 
         PlayerShip.Health = 100;
 
