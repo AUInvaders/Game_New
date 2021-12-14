@@ -24,9 +24,16 @@ public class PlayerShip : MonoBehaviour
 
     void Die()
     {
+        if (dead == false)
+        {
+            Destroy(gameObject);
+        }
+        dead = true;
+        print("test1");
         ScoreManager.Instance.SendHighscore();
+        print("test2");
         GameOverMenu.Setup();
-        Destroy(gameObject);
+        print("test3");
     }
 }
 
