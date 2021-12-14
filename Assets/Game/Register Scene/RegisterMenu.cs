@@ -111,8 +111,9 @@ public class RegisterMenu : MonoBehaviour
         return true;
     }
 
-    public void awaitReg(){
-        
+    public bool awaitReg(){
+        bool succes = false;
+
         do{
 
         } while(!_dataRecieved);
@@ -143,16 +144,20 @@ public class RegisterMenu : MonoBehaviour
                     wrongconfpass_display.GetComponent<Text>().color = Color.green;
 
                     _dataRecieved = false;
+                    succes = true;
                     break;
                 }
             default:
                 {
                     print(_rd.Message);
-
+                    wronguser_display.GetComponent<Text>().text = "Unknown error!";
+                    wronguser_display.GetComponent<Text>().color = Color.red;
                     _dataRecieved = false;
                     break;
                 }
         }
+
+        return succes;
     }
     public void RegisterButton()
     {
@@ -160,6 +165,7 @@ public class RegisterMenu : MonoBehaviour
         bool unameValidate = false;
         bool paswValidate = false;
         bool confPaswValidate = false;
+        var s = false;
 
         emailValidate = ValidateEmail(Email);
         unameValidate = ValidateUsername(Username);
@@ -173,7 +179,12 @@ public class RegisterMenu : MonoBehaviour
             WebSocketClient.Start();
             WebSocketClient.Send(JsonUtility.ToJson(Sc));
             
-            awaitReg();
+            s = awaitReg();
+        }
+
+        if (s)
+        {
+            SceneManager.LoadScene(1);
         }
     }
 
