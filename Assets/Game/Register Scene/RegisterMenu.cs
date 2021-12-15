@@ -147,11 +147,22 @@ public class RegisterMenu : MonoBehaviour
                     succes = true;
                     break;
                 }
+            case "Email is already in use":
+            {
+                print("Email is already in use");
+                
+                wrongemail_display.GetComponent<Text>().text = "Email is already in use";
+                wrongemail_display.GetComponent<Text>().color = Color.red;
+
+
+                _dataRecieved = false;
+                break;
+            }
             default:
                 {
                     print(_rd.Message);
-                    wronguser_display.GetComponent<Text>().text = "Unknown error!";
-                    wronguser_display.GetComponent<Text>().color = Color.red;
+                    wrongconfpass_display.GetComponent<Text>().text = "Unknown error!";
+                    wrongconfpass_display.GetComponent<Text>().color = Color.red;
                     _dataRecieved = false;
                     break;
                 }
