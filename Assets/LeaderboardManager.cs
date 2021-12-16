@@ -29,29 +29,7 @@ public class LeaderboardManager : MonoBehaviour
     public TextMeshProUGUI UserText8;
     public TextMeshProUGUI UserText9;
     public TextMeshProUGUI UserText10;
-
-    int Highscore1 = 0;
-    int Highscore2 = 0;
-    int Highscore3 = 0;
-    int Highscore4 = 0;
-    int Highscore5 = 0;
-    int Highscore6 = 0;
-    int Highscore7 = 0;
-    int Highscore8 = 0;
-    int Highscore9 = 0;
-    int Highscore10 = 0;
-
-    string User1;
-    string User2;
-    string User3;
-    string User4;
-    string User5;
-    string User6;
-    string User7;
-    string User8;
-    string User9;
-    string User10;
-
+    
     private bool _dataRecieved = false;
     private GamesResponse _gr;
 
