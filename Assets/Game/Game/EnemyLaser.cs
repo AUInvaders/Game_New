@@ -16,10 +16,6 @@ public class EnemyLaser : MonoBehaviour
     public Transform FirePoint;
     public GameObject EnemyBulletPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     void Update()
     { 
